@@ -1,0 +1,13 @@
+ratings=0
+man=0
+
+for i in range(10):
+    rating, people=map(int,input().split())
+    
+    ratings+=rating*people
+    man+=people
+    if ratings==0 or man==0:
+        ans=0
+    else:
+        ans=round((ratings/man),2)
+print(ans)
