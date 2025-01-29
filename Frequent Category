@@ -1,0 +1,17 @@
+def most_popular_color(data):
+    freq = {}
+    for color in data:
+        if color in freq:
+            freq[color]+=1
+        else:
+            freq[color] = 1
+    max_freq = max(freq.values())
+    most_frequent = [key for key, value in freq.items() if value == max_freq]
+    if max_freq ==1:
+        return -1
+    else:
+        most_frequent = sorted(most_frequent)
+        return most_frequent
+data  = list(input().split())
+result = most_popular_color(data)
+print(result)
