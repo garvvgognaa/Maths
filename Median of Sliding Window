@@ -1,0 +1,26 @@
+n = int(input())  
+arr = list(map(int, input().split()))  
+k = int(input())  
+
+median_list = [] 
+medians = []  
+
+for i in range(n):
+    inserted = False
+    for j in range(len(median_list)):
+        if arr[i] < median_list[j]:
+            median_list.insert(j, arr[i])
+            inserted = True
+            break
+    if not inserted:
+        median_list.append(arr[i]) 
+    if i >= k:
+        median_list.remove(arr[i - k])
+    if i >= k - 1:
+        if k % 2 == 1:
+            median = float(median_list[k // 2])
+        else:
+            median = (median_list[k // 2 - 1] + median_list[k // 2]) / 2.0
+        medians.append(median)
+for median in medians:
+    print(median)
