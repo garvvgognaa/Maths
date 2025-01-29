@@ -1,0 +1,8 @@
+def calculate_standard_deviation(scores, n):
+    mean = sum(scores) / n
+    variance = sum((score - mean) ** 2 for score in scores) / n
+    standard_deviation = variance ** 0.5
+    return round(standard_deviation, 2)
+n = int(input())
+scores = list(map(int, input().split()))
+print(calculate_standard_deviation(scores, n))
