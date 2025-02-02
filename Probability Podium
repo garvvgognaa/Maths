@@ -1,0 +1,15 @@
+import math
+
+def calculate_probabilities(n, i, g, r):
+    if not (1 <= i <= n and 1 <= g <= n and 0 <= r <= min(g, 3)):
+        return -1
+    p1 = 3 / n
+    total_ways = math.comb(n, 3)
+    ways_from_g = math.comb(g, r)
+    ways_from_non_g = math.comb(n - g, 3 - r)
+    
+    p2 = (ways_from_g * ways_from_non_g) / total_ways
+    return f"{p1:.6f} {p2:.6f}"
+n, i, g, r = map(int, input().split())
+result = calculate_probabilities(n, i, g, r)
+print(result)
