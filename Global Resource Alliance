@@ -1,0 +1,14 @@
+
+def calculate_disruption_probability(n, A):
+    disruptions = 0
+    total_pairs = (n * (n - 1)) // 2 
+    for i in range(n):
+        for j in range(i + 1, n):
+            if A[i] > A[j]:
+                disruptions += 1
+    probability = disruptions / total_pairs
+    return round(probability, 6)
+n = int(input()) 
+A = list(map(int, input().split()))
+result = calculate_disruption_probability(n, A)
+print(result)
