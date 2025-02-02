@@ -1,0 +1,20 @@
+def calculate_correlation(n, emails_sent, donation_amount):
+    xb=0
+    yb=0
+    for i in range (n):
+        xb+=emails_sent[i]
+        yb+=donation_amount[i]
+    xb/=n
+    yb/=n
+    s,stdx,stdy=0,0,0
+    for i in range (n):
+        s+=((emails_sent[i]-xb)*(donation_amount[i]-yb))
+        stdx+=((emails_sent[i]-xb)**2)
+        stdy+=((donation_amount[i]-yb)**2)
+    y=(s/((stdx*stdy)**0.5))
+    if (y>0.7):
+        return ("Positive correlation")
+    elif (y<-0.7):
+        return ("Negative correlation")
+    else:
+        return ("No correlation")
