@@ -1,0 +1,30 @@
+import math
+
+def calculate_probability(T, B, S, Y):
+    if not (1 <= T <= 12) or not (1 <= B <= 12) or not (1 <= S <= 12) or not (1 <= Y <= 12):
+        return -1
+    
+    max_power = max(T, B, S, Y)
+    
+    favorable_outcomes = 12 - max_power + 1
+    
+    total_outcomes = 12
+    
+    if favorable_outcomes == 0:
+        return 0
+    
+    if favorable_outcomes == 12:
+        return 1
+    
+    gcd = math.gcd(favorable_outcomes, total_outcomes)
+    numerator = favorable_outcomes // gcd
+    denominator = total_outcomes // gcd
+    
+    return f"{numerator}/{denominator}"
+
+# Input
+T, B, S, Y = map(int, input().split())
+
+# Calculate and output the result
+result = calculate_probability(T, B, S, Y)
+print(result)
