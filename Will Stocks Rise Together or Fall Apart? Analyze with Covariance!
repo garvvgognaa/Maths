@@ -1,0 +1,15 @@
+def predict_stock_behavior(n, stock_a, stock_b):
+    xb,yb=0,0
+    cv=0
+    for i in range (n):
+        xb+=stock_a[i]
+        yb+=stock_b[i]
+    xb/=n
+    yb/=n
+    for i in range (n):
+        cv+=((stock_a[i]-xb)*(stock_b[i]-yb))
+    if cv>0:
+        return "Rise together"
+    elif cv<0:
+        return "Fall together"
+    return "Move independently"
