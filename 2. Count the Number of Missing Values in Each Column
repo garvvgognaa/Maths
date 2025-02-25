@@ -1,0 +1,3 @@
+def count_columns_with_missing_values(df):
+    k=df['Name'].isna().sum()+ df['City'].isna().sum() +df['Age'].isna().sum()+df['Salary'].isna().sum()
+    return k
